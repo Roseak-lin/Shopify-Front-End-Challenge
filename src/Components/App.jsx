@@ -4,11 +4,12 @@ import { SearchBar } from "./Searchbar";
 import Results from "./Results";
 import Nominations from "./Nominations";
 
-class Main extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.addNomination = this.addNomination.bind(this);
+    this.removeNomination = this.removeNomination.bind(this);
 
     this.state = {
       movieName: "",
@@ -16,8 +17,6 @@ class Main extends React.Component {
       nominations: [],
     };
   }
-
-
 
   handleChange(e) {
     this.setState({
@@ -44,10 +43,24 @@ class Main extends React.Component {
 
   addNomination(title, year, id) {
     let nominations = this.state.nominations.slice();
-    if (this.state.nominations.some((item) => item[2] == id)) {
+    if (this.state.nominations.some((movie) => movie[2] === id)) {
       return;
     }
     nominations.push([title, year, id]);
+    this.setState({ nominations: nominations });
+    if (nominations.length == 5) {
+      alert("You have 5 nominations!")
+    }
+  }
+
+  removeNomination(id) {
+    let nominations = this.state.nominations.slice();
+    for (let i = 0; i < nominations.length; i++) {
+      if (nominations[i][2] === id) {
+        nominations.splice(i, 1);
+        break;
+      }
+    }
     this.setState({ nominations: nominations });
   }
 
@@ -55,18 +68,22 @@ class Main extends React.Component {
     return (
       <div>
         <h1 id="main-title">The Shoppies</h1>
-        <SearchBar onChange={this.handleChange}/>
+        <SearchBar onChange={this.handleChange} />
         <div>
           <Results
             movieName={this.state.movieName}
             results={this.state.searchResults}
             onClick={this.addNomination}
+            nominations={this.state.nominations}
           />
-          <Nominations nominations={this.state.nominations} />
+          <Nominations
+            nominations={this.state.nominations}
+            onClick={this.removeNomination}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default Main;
+export default App;

@@ -5,7 +5,7 @@ export default class Nominations extends React.Component {
     let items = this.props.nominations.map((nomination, ind) => {
       return (
         <li key={ind}>
-          {nomination[0]} ({nomination[1]}) <button>Remove</button>
+          {nomination[0]} ({nomination[1]}) <button onClick={() => this.props.onClick(nomination[2])}>Remove</button>
         </li>
       );
     })
