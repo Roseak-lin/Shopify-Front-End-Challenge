@@ -19,6 +19,7 @@ export default class Results extends React.Component {
                 onClick={() =>
                   this.props.onClick(movie.Title, movie.Year, movie.imdbID)
                 }
+                className="nominate"
               >
                 Nominate
               </button>
