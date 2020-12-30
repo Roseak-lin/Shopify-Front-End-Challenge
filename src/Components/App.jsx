@@ -67,7 +67,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1 id="main-title">The Shoppies</h1>
+        <h1>The Shoppies</h1>
         <SearchBar onChange={this.handleChange} />
         <div>
           <Results

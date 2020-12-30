@@ -7,8 +7,8 @@ export default class Results extends React.Component {
     return (
       <div id="results">
         <h3>
-          Results for{" "}
-          {this.props.movieName === "" ? "" : '"' + this.props.movieName + '"'}
+          Results for 
+          {this.props.movieName === "" ? "" : ' "' + this.props.movieName + '"'}
         </h3>
         <ul id="searchResults-list">
           {this.props.results.map((movie, ind) => (
