@@ -27,8 +27,6 @@ button:focus {
   transition: 0.4s;
 }
 
-
-
 #searchbar {
   background-color: #fff;
   width: 93.75%;
@@ -64,5 +62,5 @@ button:focus {
 }
 
 #nominations-list li{
-  padding-top: 4px;
+  padding-top: 12px;
 }
