@@ -25,7 +25,7 @@ class App extends React.Component {
     });
     // API request call
     let requestUrl =
-      "http://www.omdbapi.com/?s=" + e.target.value + "&apikey=7b7631bb";
+      "https://www.omdbapi.com/?s=" + e.target.value + "&apikey=7b7631bb";
     axios
       .get(requestUrl)
       .then((keyword) => {
