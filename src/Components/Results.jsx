@@ -10,7 +10,17 @@ export default class Results extends React.Component {
         </h3>
         <ul id="searchResults-list">
           {this.props.results.map((movie, ind) => (
-            <li key={ind}>{movie.Title} ({movie.Year}) <button onClick={() => this.props.onClick(movie.Title, movie.Year)}>Nominate</button></li>
+            <li key={ind}>
+              {movie.Title} ({movie.Year}){" "}
+              <button
+              
+                onClick={() =>
+                  this.props.onClick(movie.Title, movie.Year, movie.imdbID)
+                }
+              >
+                Nominate
+              </button>
+            </li>
           ))}
         </ul>
       </div>

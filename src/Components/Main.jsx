@@ -42,9 +42,12 @@ class Main extends React.Component {
       .catch((e) => console.log(e));
   }
 
-  addNomination(title, year) {
-    let nominations = this.state.nominations == undefined ? [] : this.state.nominations.slice();
-    nominations.push([title, year]);
+  addNomination(title, year, id) {
+    let nominations = this.state.nominations.slice();
+    if (this.state.nominations.some((item) => item[2] == id)) {
+      return;
+    }
+    nominations.push([title, year, id]);
     this.setState({ nominations: nominations });
   }
 
