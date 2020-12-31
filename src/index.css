@@ -2,8 +2,11 @@ html {
   background-color: rgb(221, 221, 221);
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 200px;
-  margin-left: 5%;
-  margin-right: 5%;
+}
+
+#title {
+  width: 90%;
+  margin: auto;
 }
 
 button {
@@ -28,10 +31,14 @@ button:focus {
 }
 
 #searchbar {
-  background-color: #fff;
-  width: 93.75%;
-  padding: 12px;
+  margin: auto;
+  width: 90%;
   margin-bottom: 20px;
+}
+
+#sb {
+  background-color: #fff;
+  padding: 12px;
 }
 
 #textfield {
@@ -40,27 +47,23 @@ button:focus {
   border: 1px solid #ccc;
 }
 
-#results {
-  display: inline-table;
-  background-color: #fff;
-  padding: 12px;
-  margin-inline-end: 40px;
-  width: 45%;
-  height: 400px;
+#lower-half {
+  width: 90%;
+  margin: auto;
 }
 
-#searchResults-list li{
+#lower-half .lower-half-child {
+  background-color: #fff;
+  border-radius: 6px;
+  display: inline-table;
+  height: 400px;
+  width: 47.5%;
+}
+
+#lower-half .lower-half-child li {
   padding-top: 12px;
 }
 
-#nominations {
-  display: inline-table;
-  background-color: #fff;
+.lower-half-container {
   padding: 12px;
-  width: 45%;
-  height: 400px;
-}
-
-#nominations-list li{
-  padding-top: 12px;
 }

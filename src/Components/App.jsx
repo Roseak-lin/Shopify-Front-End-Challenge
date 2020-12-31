@@ -18,11 +18,13 @@ class App extends React.Component {
     };
   }
 
+  // method that updates searchresults whenever the input field changes
   handleChange(e) {
     this.setState({
       movieName: e.target.value,
       searchResults: [],
     });
+
     // API request call
     let requestUrl =
       "https://www.omdbapi.com/?s=" + e.target.value + "&apikey=7b7631bb";
@@ -49,7 +51,7 @@ class App extends React.Component {
     nominations.push([title, year, id]);
     this.setState({ nominations: nominations });
     if (nominations.length == 5) {
-      alert("You have 5 nominations!")
+      alert("You have 5 nominations!");
     }
   }
 
@@ -67,9 +69,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>The Shoppies</h1>
-        <SearchBar onChange={this.handleChange} />
-        <div>
+        <div id="title">
+          <h1>The Shoppies</h1>
+        </div>
+        <div id="searchbar">
+          <SearchBar onChange={this.handleChange} />
+        </div>
+        <div id="lower-half">
           <Results
             movieName={this.state.movieName}
             results={this.state.searchResults}

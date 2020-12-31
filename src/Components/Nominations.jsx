@@ -6,17 +6,21 @@ export default class Nominations extends React.Component {
       return (
         <li key={ind}>
           {nomination[0]} ({nomination[1]}){" "}
-          <button onClick={() => this.props.onClick(nomination[2])}
-          className="remove">
+          <button
+            onClick={() => this.props.onClick(nomination[2])}
+            className="remove"
+          >
             Remove
           </button>
         </li>
       );
     });
     return (
-      <div id="nominations">
-        <h3>Nominations</h3>
-        <ul id="nominations-list">{items}</ul>
+      <div className="lower-half-child">
+          <div className="lower-half-container">
+          <h3>Nominations</h3>
+          <ul id="nominations-list">{items}</ul>
+        </div>
       </div>
     );
   }
