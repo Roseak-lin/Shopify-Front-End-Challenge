@@ -14,7 +14,7 @@ class App extends React.Component {
     this.state = {
       movieName: "",
       searchResults: [],
-      nominations: [],
+      nominations: localStorage.getItem("Nominations") === null ? [] : JSON.parse(localStorage.getItem("Nominations")),
     };
   }
 
@@ -25,7 +25,7 @@ class App extends React.Component {
       searchResults: [],
     });
 
-    // API request call
+    // OMDb API request call
     let requestUrl =
       "https://www.omdbapi.com/?s=" + e.target.value + "&apikey=7b7631bb";
     axios
@@ -42,7 +42,7 @@ class App extends React.Component {
       })
       .catch((e) => console.log(e));
   }
-
+  // nominate onCLick function
   addNomination(title, year, id) {
     let nominations = this.state.nominations.slice();
     if (this.state.nominations.some((movie) => movie[2] === id)) {
@@ -50,11 +50,14 @@ class App extends React.Component {
     }
     nominations.push([title, year, id]);
     this.setState({ nominations: nominations });
-    if (nominations.length == 5) {
+    if (nominations.length === 5) {
       alert("You have 5 nominations!");
     }
-  }
 
+    // save into localstorage
+    localStorage.setItem("Nominations", JSON.stringify(nominations));
+  }
+  // remove nominations onClick function
   removeNomination(id) {
     let nominations = this.state.nominations.slice();
     for (let i = 0; i < nominations.length; i++) {
