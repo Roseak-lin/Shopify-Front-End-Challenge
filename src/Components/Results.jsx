@@ -5,7 +5,7 @@ export default class Results extends React.Component {
     let nominations = this.props.nominations;
     const list = this.props.results.map((movie, ind) => {
       return (
-        <li key={ind}>
+        <div className="results-card" key={ind}>
           {movie.Title} ({movie.Year}){" "}
           <button
             disabled={nominations.some(
@@ -18,7 +18,7 @@ export default class Results extends React.Component {
           >
             Nominate
           </button>
-        </li>
+        </div>
       );
     });
 
@@ -31,7 +31,7 @@ export default class Results extends React.Component {
               ? ""
               : ' "' + this.props.movieName + '"'}
           </h3>
-          <ul id="searchResults-list">{list}</ul>
+          <div id="searchResults-list">{list}</div>
         </div>
       </div>
     );

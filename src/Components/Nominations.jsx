@@ -2,24 +2,24 @@ import React from "react";
 
 export default class Nominations extends React.Component {
   render() {
-    let items = this.props.nominations.map((nomination, ind) => {
+    const items = this.props.nominations.map((nomination, ind) => {
       return (
-        <li key={ind}>
+        <div className="nomination-card" key={ind}>
           {nomination[0]} ({nomination[1]}){" "}
           <button
-            onClick={() => this.props.onClick(nomination[2])}
+            onClick={() => this.props.onClick(nomination[2], ind)}
             className="remove"
           >
             Remove
           </button>
-        </li>
+        </div>
       );
     });
     return (
       <div className="lower-half-child">
           <div className="lower-half-container">
           <h3>Nominations</h3>
-          <ul id="nominations-list">{items}</ul>
+          <div id="nomination-list">{items}</div>
         </div>
       </div>
     );

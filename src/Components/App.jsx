@@ -14,7 +14,10 @@ class App extends React.Component {
     this.state = {
       movieName: "",
       searchResults: [],
-      nominations: localStorage.getItem("Nominations") === null ? [] : JSON.parse(localStorage.getItem("Nominations")),
+      nominations:
+        localStorage.getItem("Nominations") === null
+          ? []
+          : JSON.parse(localStorage.getItem("Nominations")),
     };
   }
 
@@ -34,7 +37,7 @@ class App extends React.Component {
         let movies = keyword.data.Search;
         let searchResults = [];
         if (movies !== undefined) {
-          for (let i = 0; i < movies.length && searchResults.length < 3; i++) {
+          for (let i = 0; i < movies.length && searchResults.length < 5; i++) {
             searchResults.push(movies[i]);
           }
         }
@@ -42,31 +45,43 @@ class App extends React.Component {
       })
       .catch((e) => console.log(e));
   }
-  // nominate onCLick function
+
+  // nominate onClick function
   addNomination(title, year, id) {
     let nominations = this.state.nominations.slice();
     if (this.state.nominations.some((movie) => movie[2] === id)) {
       return;
+    } else if (nominations.length === 5) {
+      alert("You can only nominate a maximum of 5 films");
+      return;
     }
+    // code for running insertion animation
     nominations.push([title, year, id]);
     this.setState({ nominations: nominations });
-    if (nominations.length === 5) {
-      alert("You have 5 nominations!");
-    }
-
-    // save into localstorage
-    localStorage.setItem("Nominations", JSON.stringify(nominations));
+    
   }
+
   // remove nominations onClick function
-  removeNomination(id) {
-    let nominations = this.state.nominations.slice();
+  // key parameter needed to run animation
+  removeNomination(id, key) {
+    let nominations = this.state.nominations.slice(),
+      index;
+    const removedCard = document.getElementsByClassName("nomination-card")[key];
     for (let i = 0; i < nominations.length; i++) {
       if (nominations[i][2] === id) {
-        nominations.splice(i, 1);
+        removedCard.classList.add("remove-card");
+        index = i;
         break;
       }
     }
-    this.setState({ nominations: nominations });
+    // give time for animation to run
+    setTimeout(() => {
+      nominations.splice(index, 1);
+      this.setState({ nominations: nominations });
+      // remove "opacity: 0" property from new card that takes the spot of the old card
+      removedCard.classList.remove("remove-card");
+      localStorage.setItem("Nominations", JSON.stringify(nominations));
+    }, 300);
   }
 
   render() {
@@ -84,6 +99,7 @@ class App extends React.Component {
             results={this.state.searchResults}
             onClick={this.addNomination}
             nominations={this.state.nominations}
+            listIsFull={this.state.nominations.length === 5 ? true : false}
           />
           <Nominations
             nominations={this.state.nominations}
