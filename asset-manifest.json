@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Shopify-Front-End-Challenge/static/css/main.fbe5cd69.chunk.css",
+    "main.css": "/Shopify-Front-End-Challenge/static/css/main.478a8c33.chunk.css",
     "main.js": "/Shopify-Front-End-Challenge/static/js/main.78bd6cd2.chunk.js",
     "main.js.map": "/Shopify-Front-End-Challenge/static/js/main.78bd6cd2.chunk.js.map",
     "runtime-main.js": "/Shopify-Front-End-Challenge/static/js/runtime-main.1d08ba24.js",
@@ -8,13 +8,13 @@
     "static/js/2.5fa3d824.chunk.js": "/Shopify-Front-End-Challenge/static/js/2.5fa3d824.chunk.js",
     "static/js/2.5fa3d824.chunk.js.map": "/Shopify-Front-End-Challenge/static/js/2.5fa3d824.chunk.js.map",
     "index.html": "/Shopify-Front-End-Challenge/index.html",
-    "static/css/main.fbe5cd69.chunk.css.map": "/Shopify-Front-End-Challenge/static/css/main.fbe5cd69.chunk.css.map",
+    "static/css/main.478a8c33.chunk.css.map": "/Shopify-Front-End-Challenge/static/css/main.478a8c33.chunk.css.map",
     "static/js/2.5fa3d824.chunk.js.LICENSE.txt": "/Shopify-Front-End-Challenge/static/js/2.5fa3d824.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1d08ba24.js",
     "static/js/2.5fa3d824.chunk.js",
-    "static/css/main.fbe5cd69.chunk.css",
+    "static/css/main.478a8c33.chunk.css",
     "static/js/main.78bd6cd2.chunk.js"
   ]
 }
