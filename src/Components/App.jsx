@@ -64,7 +64,7 @@ class App extends React.Component {
       newCard.classList.add("add-card");
       setTimeout(() => {
         newCard.classList.remove("add-card");
-      }, 300);
+      }, 100);
     });
     localStorage.setItem("Nominations", JSON.stringify(nominations));
   }
@@ -90,7 +90,7 @@ class App extends React.Component {
         removedCard.classList.remove("remove-card");
         localStorage.setItem("Nominations", JSON.stringify(nominations));
       });
-    }, 300);
+    }, 100);
   }
 
   render() {

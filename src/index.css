@@ -109,7 +109,7 @@ button:focus {
 }
 
 .nomination-card.add-card {
-  animation: nomination-slide 0.5s;
+  animation: nomination-slide 0.3s;
 }
 
 @keyframes nomination-slide {
@@ -124,7 +124,7 @@ button:focus {
 }
 
 .nomination-card.remove-card {
-  transition: 0.3s;
+  transition: 0.1s;
   opacity: 0;
   margin-left: -100px;
 }
