@@ -96,15 +96,15 @@ button:focus {
 
 @keyframes fade-in-card {
   from {
-    opacity: 0%;
+    opacity: 0;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
 .nomination-card {
-  opacity: 100%;
+  opacity: 1;
   margin-left: inherit;
 }
 
@@ -114,17 +114,17 @@ button:focus {
 
 @keyframes nomination-slide {
   from {
-    opacity: 0%;
+    opacity: 0;
     margin-left: -100px;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
     margin-left: 0;
   }
 }
 
 .nomination-card.remove-card {
   transition: 0.3s;
-  opacity: 0%;
+  opacity: 0;
   margin-left: -100px;
 }
