@@ -57,8 +57,16 @@ class App extends React.Component {
     }
     // code for running insertion animation
     nominations.push([title, year, id]);
-    this.setState({ nominations: nominations });
-    
+    this.setState({ nominations: nominations }, () => {
+      const newCard = document.getElementsByClassName("nomination-card")[
+        this.state.nominations.length - 1
+      ];
+      newCard.classList.add("add-card");
+      setTimeout(() => {
+        newCard.classList.remove("add-card");
+      }, 300);
+    });
+    localStorage.setItem("Nominations", JSON.stringify(nominations));
   }
 
   // remove nominations onClick function
@@ -77,10 +85,11 @@ class App extends React.Component {
     // give time for animation to run
     setTimeout(() => {
       nominations.splice(index, 1);
-      this.setState({ nominations: nominations });
-      // remove "opacity: 0" property from new card that takes the spot of the old card
-      removedCard.classList.remove("remove-card");
-      localStorage.setItem("Nominations", JSON.stringify(nominations));
+      this.setState({ nominations: nominations }, () => {
+        // remove "opacity: 0" property from new card that takes the spot of the old card
+        removedCard.classList.remove("remove-card");
+        localStorage.setItem("Nominations", JSON.stringify(nominations));
+      });
     }, 300);
   }
 
