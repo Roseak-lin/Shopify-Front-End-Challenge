@@ -87,7 +87,7 @@ class App extends React.Component {
         );
       });
       
-    }, 500);
+    }, 100);
   }
 
   render() {
