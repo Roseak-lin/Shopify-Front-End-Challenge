@@ -7,7 +7,7 @@ export default class Nominations extends React.Component {
         <div className="nomination-card" key={ind}>
           {nomination[0]} ({nomination[1]}){" "}
           <button
-            onClick={() => this.props.onClick(nomination[2], ind)}
+            onClick={() => this.props.onClick(ind)}
             className="remove"
           >
             Remove

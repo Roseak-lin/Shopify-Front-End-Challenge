@@ -71,26 +71,23 @@ class App extends React.Component {
 
   // remove nominations onClick function
   // key parameter needed to run animation
-  removeNomination(id, key) {
-    let nominations = this.state.nominations.slice(),
-      index;
-    const removedCard = document.getElementsByClassName("nomination-card")[key];
-    for (let i = 0; i < nominations.length; i++) {
-      if (nominations[i][2] === id) {
-        removedCard.classList.add("remove-card");
-        index = i;
-        break;
-      }
-    }
+  removeNomination(key) {
+    let nominations = this.state.nominations.slice();
+    let removedCard = document.getElementsByClassName("nomination-card")[key];
+    removedCard.classList.add("remove-card");
+    nominations.splice(key, 1);
     // give time for animation to run
     setTimeout(() => {
-      nominations.splice(index, 1);
+      // remove "opacity: 0" property from new card that takes the spot of the old card
       this.setState({ nominations: nominations }, () => {
-        // remove "opacity: 0" property from new card that takes the spot of the old card
         removedCard.classList.remove("remove-card");
-        localStorage.setItem("Nominations", JSON.stringify(nominations));
+        localStorage.setItem(
+          "Nominations",
+          JSON.stringify(this.state.nominations)
+        );
       });
-    }, 100);
+      
+    }, 500);
   }
 
   render() {

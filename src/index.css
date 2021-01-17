@@ -22,7 +22,7 @@ button:focus {
 
 .nominate {
   background-image: linear-gradient(45deg, rgb(47, 236, 47) 50%, transparent 50%);
-  transition: 0.3s;
+  transition: 0.1s;
   background-position: 100%;
   background-size: 400%;
 }
@@ -33,7 +33,7 @@ button:focus {
 
 .remove {
   background-image: linear-gradient(45deg, rgb(247, 66, 66) 50%, transparent 50%);
-  transition: 0.3s;
+  transition: 0.1s;
   background-position: 100%;
   background-size: 400%;
 }
