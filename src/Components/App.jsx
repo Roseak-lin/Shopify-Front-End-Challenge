@@ -3,6 +3,7 @@ import axios from "axios";
 import { SearchBar } from "./Searchbar";
 import Results from "./Results";
 import Nominations from "./Nominations";
+import Popup from "./Popup";
 
 class App extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class App extends React.Component {
     if (this.state.nominations.some((movie) => movie[2] === id)) {
       return;
     } else if (nominations.length === 5) {
-      alert("You can only nominate a maximum of 5 films");
+      document.getElementById("popup").style.display = "block";
       return;
     }
     // code for running insertion animation
@@ -86,7 +87,6 @@ class App extends React.Component {
           JSON.stringify(this.state.nominations)
         );
       });
-      
     }, 100);
   }
 
@@ -112,6 +112,7 @@ class App extends React.Component {
             onClick={this.removeNomination}
           />
         </div>
+        <Popup />
       </div>
     );
   }
